@@ -1,23 +1,18 @@
-# Environment and secrets
+# Secrets
 .env
 .env.*
 !.env.example
+config.local.php
 
-# Dependencies
+# Dependencies / logs
 node_modules/
-
-# Logs and runtime artifacts
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# System and OS files
+# Local/editor files
 .DS_Store
-Thumbs.db
-desktop.ini
+.vscode/
+.idea/
 
-# Local backup directories and archives
-creative-wing-frontend (1).zip
-creative-wing-frontend (1)/
-scratch/
+# Archives and temporary copies
+*.zip
+creative-wing-frontend*/

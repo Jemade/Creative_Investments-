@@ -90,21 +90,8 @@
 
         return saved;
       } catch (e) {
-        // Fallback: save to localStorage if offline
-        console.warn('InventoryService: Saving to local storage only:', e.message);
-        const local = this.getLocalVehicles();
-        if (isNew) {
-          vehicle.id = 'C' + String(Date.now()).slice(-4);
-          vehicle.createdAt = new Date().toISOString();
-          vehicle.updatedAt = vehicle.createdAt;
-          local.unshift(vehicle);
-        } else {
-          vehicle.updatedAt = new Date().toISOString();
-          const idx = local.findIndex(v => v.id === vehicle.id);
-          if (idx !== -1) local[idx] = vehicle;
-        }
-        this.syncLocalVehicles(local);
-        return vehicle;
+        console.error('InventoryService: Vehicle save failed:', e.message);
+        throw e;
       }
     },
 
@@ -128,7 +115,8 @@
           throw new Error(err.error || `HTTP ${res.status}`);
         }
       } catch (e) {
-        console.warn('InventoryService: Deleting from local storage only:', e.message);
+        console.error('InventoryService: Vehicle delete failed:', e.message);
+        throw e;
       }
 
       const local = this.getLocalVehicles().filter(v => v.id !== id);
@@ -177,20 +165,8 @@
 
         return saved;
       } catch (e) {
-        console.warn('InventoryService: Saving sportswear to local storage only:', e.message);
-        const local = this.getLocalSportswear();
-        if (isNew) {
-          item.id = 'S' + String(Date.now()).slice(-4);
-          item.createdAt = new Date().toISOString();
-          item.updatedAt = item.createdAt;
-          local.unshift(item);
-        } else {
-          item.updatedAt = new Date().toISOString();
-          const idx = local.findIndex(s => s.id === item.id);
-          if (idx !== -1) local[idx] = item;
-        }
-        this.syncLocalSportswear(local);
-        return item;
+        console.error('InventoryService: Sportswear save failed:', e.message);
+        throw e;
       }
     },
 
@@ -214,7 +190,8 @@
           throw new Error(err.error || `HTTP ${res.status}`);
         }
       } catch (e) {
-        console.warn('InventoryService: Deleting sportswear from local storage only:', e.message);
+        console.error('InventoryService: Sportswear delete failed:', e.message);
+        throw e;
       }
 
       const local = this.getLocalSportswear().filter(s => s.id !== id);
