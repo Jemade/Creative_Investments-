@@ -103,8 +103,9 @@ try {
         $tokenHash = hash('sha256', $token);
         $hours = max(1, min(72, (int)($config['session_hours'] ?? 8)));
         $pdo->exec('DELETE FROM admin_sessions WHERE expires_at <= UTC_TIMESTAMP()');
-        $stmt = $pdo->prepare('INSERT INTO admin_sessions (token_hash, username, expires_at) VALUES (?, ?, DATE_ADD(UTC_TIMESTAMP(), INTERVAL ? HOUR))');
-        $stmt->execute([$tokenHash, (string)$admin['username'], $hours]);
+        $expiresAt = gmdate('Y-m-d H:i:s', time() + ($hours * 3600));
+        $stmt = $pdo->prepare('INSERT INTO admin_sessions (token_hash, username, expires_at) VALUES (?, ?, ?)');
+        $stmt->execute([$tokenHash, (string)$admin['username'], $expiresAt]);
         respond(200, ['success' => true, 'token' => $token, 'user' => [
             'username' => (string)$admin['username'], 'displayName' => 'Owner Administration', 'role' => 'OWNER'
         ]]);
