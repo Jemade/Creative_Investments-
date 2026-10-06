@@ -1,0 +1,163 @@
+/* Creative Wing Investments — Global Layout & Typography */
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgba(34, 157, 154, 0.18), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(152, 199, 87, 0.10), transparent 60%),
+    linear-gradient(180deg, #040E2C 0%, #06133A 55%, #040E2C 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Container System */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3.5vw, 32px);
+}
+
+/* Section Rhythm */
+.section {
+  padding-block: clamp(56px, 8vw, 96px);
+  position: relative;
+}
+
+.section-accent {
+  background: linear-gradient(180deg, transparent, rgba(34, 157, 154, 0.05) 50%, transparent);
+  border-block: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: clamp(2.35rem, 5.5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.8vw, 2.5rem);
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--muted);
+  margin-bottom: 1em;
+  line-height: 1.65;
+}
+
+p.lead {
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: #DDE3ED;
+  line-height: 1.6;
+  max-width: 620px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 2px;
+  background: var(--lime);
+  border-radius: 2px;
+}
+
+/* Accent Text */
+.accent-text {
+  color: var(--brand-primary, #98C757);
+  font-weight: 800;
+  display: inline-block;
+}
+
+/* Header Rows */
+.title-row {
+ display: flex;
+ align-items: flex-end;
+ justify-content: space-between;
+ gap: var(--space-5);
+ margin-bottom: clamp(28px, 5vw, 44px);
+ flex-wrap: wrap;
+}
+
+.title-row-intro {
+ max-width: 580px;
+}
+
+.title-row-intro h2 {
+ margin-bottom: 8px;
+}
+
+.title-row-intro p {
+ margin-bottom: 0;
+}
+
+/* Grid Layouts */
+.grid {
+ display: grid;
+ gap: clamp(18px, 2.5vw, 28px);
+ grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+}
+
+/* Utility Helpers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Accessible Focus Outlines */
+:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+}
+
+/* Reduced Motion Consideration */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

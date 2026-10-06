@@ -1,0 +1,502 @@
+[
+  {
+    "id": "S01",
+    "name": "Yellow Chevron Pro Match Set",
+    "price": 25,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/01.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S02",
+    "name": "Royal Blue Pro Kit",
+    "price": 28,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/02.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S03",
+    "name": "Crimson Striker Match Kit",
+    "price": 25,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/03.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S04",
+    "name": "Flame Red Goalkeeper Pro Kit",
+    "price": 30,
+    "category": "Goalkeeper",
+    "inStock": true,
+    "image": "images/sportswear/04.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S05",
+    "name": "Sky Blue Goalkeeper Match Kit",
+    "price": 30,
+    "category": "Goalkeeper",
+    "inStock": true,
+    "image": "images/sportswear/05.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S06",
+    "name": "Shumba 14 Electric Basketball Jersey",
+    "price": 26,
+    "category": "Basketball",
+    "inStock": true,
+    "image": "images/sportswear/06.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S07",
+    "name": "Neon Volt Goalkeeper Kit",
+    "price": 30,
+    "category": "Goalkeeper",
+    "inStock": true,
+    "image": "images/sportswear/07.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S08",
+    "name": "Royal Blue Striped Squad Kit",
+    "price": 26,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/08.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S09",
+    "name": "White & Gold Elite Match Set",
+    "price": 28,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/09.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S10",
+    "name": "Forest Green Tournament Kit",
+    "price": 26,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/10.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S11",
+    "name": "Navy Captain League Kit",
+    "price": 27,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/11.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S12",
+    "name": "Black & Gold Stealth Pro Kit",
+    "price": 28,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/12.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S13",
+    "name": "Burgundy Aurum League Set",
+    "price": 28,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/13.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S14",
+    "name": "Teal Velocity Speed Kit",
+    "price": 26,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/14.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S15",
+    "name": "Volt Orange Energy Match Set",
+    "price": 26,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/15.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S16",
+    "name": "Imperial Gold Championship Set",
+    "price": 30,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/16.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S17",
+    "name": "Cybernetics Aqua Match Set",
+    "price": 26,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/17.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S18",
+    "name": "Royal Blue Squad Kit (Alt)",
+    "price": 25,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/18.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S19",
+    "name": "Pro Blue Match Kit (Alt)",
+    "price": 26,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/19.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  },
+  {
+    "id": "S20",
+    "name": "Yellow Chevron Training Kit",
+    "price": 25,
+    "category": "Match Set",
+    "inStock": true,
+    "image": "images/sportswear/20.jpeg",
+    "status": "Available",
+    "currency": "USD",
+    "pricingUnit": "Per Full Set",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "material": "100% micro-polyester",
+    "customizationOptions": [
+      "Custom Name & Number Printing",
+      "Club Crest Embroidery"
+    ],
+    "createdAt": "2026-09-11T07:41:34.230Z",
+    "updatedAt": "2026-09-11T07:41:34.230Z"
+  }
+]

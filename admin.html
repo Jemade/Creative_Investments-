@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Owner Administration | Creative Wing Investments</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#040E2C">
+  <link rel="icon" href="images/logo.jpeg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="images/logo.jpeg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core & Admin Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-components.css">
+  <link rel="stylesheet" href="css/admin-responsive.css">
+</head>
+<body class="admin-body">
+
+  <!-- ==================================================
+       1. SECURE OWNER AUTHENTICATION SCREEN
+       ================================================== -->
+  <div id="authScreen" class="admin-auth-screen">
+    <div class="admin-login-card">
+      <div class="admin-login-brand">
+        <img src="images/logo.jpeg" class="admin-login-logo" alt="Creative Wing Investments logo">
+        <h1 class="admin-login-title">Creative <b>Wing</b></h1>
+        <span class="admin-login-sub">Owner Administration</span>
+      </div>
+
+      <div id="adminLoginAlert" class="admin-login-alert"></div>
+
+      <form id="adminLoginForm" class="admin-login-form">
+        <div class="admin-field-group">
+          <label for="adminUsername" class="admin-field-label">Administrator Email or Username</label>
+          <input type="text" id="adminUsername" class="admin-field-input" placeholder="info@creativewinginvestments.co.zw or owner" autocomplete="username" required autofocus>
+        </div>
+
+        <div class="admin-field-group">
+          <label for="adminPassword" class="admin-field-label">Access Password</label>
+          <div class="admin-password-wrapper">
+            <input type="password" id="adminPassword" class="admin-field-input" placeholder="••••••••••••" autocomplete="current-password" required>
+            <button type="button" id="adminPasswordToggle" class="admin-password-toggle-btn" aria-label="Toggle password visibility" title="Show/Hide Password">
+              <svg id="eyeIconOpen" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <svg id="eyeIconClosed" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px">
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.84rem;color:#CBD5E1;cursor:pointer">
+            <input type="checkbox" id="adminRememberMe" style="accent-color:var(--admin-lime)">
+            <span>Keep me signed in</span>
+          </label>
+        </div>
+
+        <button type="submit" id="adminLoginBtn" class="admin-btn-login">
+          <span>Sign In to Admin</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </form>
+
+      <div class="admin-login-footer">
+        Authorized Creative Wing Personnel Only • Harare, Zimbabwe
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================
+       2. AUTHENTICATED APPLICATION SHELL
+       ================================================== -->
+  <div id="adminShell" class="admin-shell" style="display:none">
+    <!-- Topbar -->
+    <header class="admin-topbar">
+      <div class="admin-topbar-left">
+        <button type="button" id="adminToggleSidebar" class="admin-toggle-sidebar" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <h2 id="adminTopbarTitle" class="admin-page-title">Operational Dashboard</h2>
+      </div>
+
+      <div class="admin-topbar-right">
+        <a href="index.html" target="_blank" class="admin-topbar-showroom-btn" title="View Public Website">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          <span>Live Showroom</span>
+        </a>
+        <button type="button" id="adminLogoutBtn" class="admin-btn-logout" title="Sign Out">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span>Logout</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside id="adminSidebar" class="admin-sidebar">
+      <a href="index.html" target="_blank" class="admin-sidebar-brand" title="View Public Website">
+        <img src="images/logo.jpeg" class="admin-sidebar-logo" alt="Creative Wing Investments logo">
+        <div class="admin-sidebar-brand-text">
+          <span class="admin-sidebar-brand-title">Creative <b>Wing</b></span>
+          <span class="admin-sidebar-brand-sub">Operations OS</span>
+        </div>
+      </a>
+
+      <nav class="admin-sidebar-nav">
+        <a href="#dashboard" class="admin-nav-item active" data-view="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="#vehicles" class="admin-nav-item" data-view="vehicles">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M5 11l2-6h10l2 6"/><circle cx="7.5" cy="15.5" r="1.5"/><circle cx="16.5" cy="15.5" r="1.5"/></svg>
+          <span>Vehicles Fleet</span>
+          <span id="sidebarVehicleCount" class="admin-nav-badge">0</span>
+        </a>
+
+        <a href="#sportswear" class="admin-nav-item" data-view="sportswear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+          <span>Sportswear</span>
+          <span id="sidebarSportswearCount" class="admin-nav-badge">0</span>
+        </a>
+
+        <a href="#settings" class="admin-nav-item" data-view="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="admin-sidebar-footer">
+        Creative Wing Investments © 2026<br>
+        Harare, Zimbabwe
+      </div>
+    </aside>
+    <div id="adminSidebarBackdrop" class="admin-sidebar-backdrop"></div>
+
+    <!-- Main Views Container -->
+    <main class="admin-main">
+
+      <!-- ==============================================
+           VIEW 1: OPERATIONAL DASHBOARD
+           ============================================== -->
+      <section id="view-dashboard" class="admin-view active">
+        <div class="admin-header-row">
+          <div class="admin-header-title">
+            <h1>Welcome back, Owner</h1>
+            <p>High-level operational overview of verified vehicles, active team sportswear, and live catalogue status.</p>
+          </div>
+          <div class="admin-header-actions">
+            <button type="button" class="admin-btn admin-btn-primary" onclick="adminVehicles.openAddModal()">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Add Vehicle</span>
+            </button>
+            <button type="button" class="admin-btn admin-btn-secondary" onclick="adminSportswear.openAddModal()">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Add Sportswear</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- KPI Metrics Cards -->
+        <div id="dashboardMetricsGrid" class="admin-kpi-grid"></div>
+
+        <!-- Recent Activity Feed -->
+        <div class="admin-card-container">
+          <div class="admin-card-header">
+            <h3>Recent Inventory Activity</h3>
+            <span style="font-size:0.82rem;color:#94A3B8">Live persistent record updates</span>
+          </div>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                  <th>Last Updated</th>
+                  <th style="text-align:right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="dashboardActivityBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           VIEW 2: VEHICLES FLEET MANAGEMENT
+           ============================================== -->
+      <section id="view-vehicles" class="admin-view">
+        <div class="admin-header-row">
+          <div class="admin-header-title">
+            <h1>Vehicle Fleet Inventory</h1>
+            <p>Manage verified vehicles, pricing, availability and customer-facing catalogue information.</p>
+          </div>
+          <div class="admin-header-actions">
+            <button type="button" class="admin-btn admin-btn-primary" onclick="adminVehicles.openAddModal()">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Add Vehicle</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="admin-filter-bar">
+          <div class="admin-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" id="vehicleSearchInput" class="admin-search-input" placeholder="Search make, model, year, or ID...">
+          </div>
+
+          <div id="vehicleFilterPills" class="admin-pills-group">
+            <button type="button" class="admin-filter-pill active" data-filter="all">All Vehicles</button>
+            <button type="button" class="admin-filter-pill" data-filter="Available">Available</button>
+            <button type="button" class="admin-filter-pill" data-filter="Reserved">Reserved</button>
+            <button type="button" class="admin-filter-pill" data-filter="Sold">Sold</button>
+            <button type="button" class="admin-filter-pill" data-filter="Pickup">Pickups & 4x4s</button>
+            <button type="button" class="admin-filter-pill" data-filter="SUV">SUVs</button>
+            <button type="button" class="admin-filter-pill" data-filter="Sedan">Sedans</button>
+            <button type="button" class="admin-filter-pill" data-filter="Hatchback">Hatchbacks</button>
+          </div>
+        </div>
+
+        <!-- Vehicles Table -->
+        <div class="admin-table-card">
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Year</th>
+                  <th>Category</th>
+                  <th>Price (USD)</th>
+                  <th>Mileage</th>
+                  <th>Status</th>
+                  <th>Updated</th>
+                  <th style="text-align:right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="vehiclesTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           VIEW 3: SPORTSWEAR CATALOG MANAGEMENT
+           ============================================== -->
+      <section id="view-sportswear" class="admin-view">
+        <div class="admin-header-row">
+          <div class="admin-header-title">
+            <h1>Sportswear & Apparel Catalog</h1>
+            <p>Manage team match kits, training apparel, specifications, pricing and availability.</p>
+          </div>
+          <div class="admin-header-actions">
+            <button type="button" class="admin-btn admin-btn-primary" onclick="adminSportswear.openAddModal()">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Add Product</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="admin-filter-bar">
+          <div class="admin-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" id="sportswearSearchInput" class="admin-search-input" placeholder="Search kit title, category, or colourway...">
+          </div>
+
+          <div id="sportswearFilterPills" class="admin-pills-group">
+            <button type="button" class="admin-filter-pill active" data-filter="all">All Kits</button>
+            <button type="button" class="admin-filter-pill" data-filter="Available">Available</button>
+            <button type="button" class="admin-filter-pill" data-filter="Match Set">Match Sets</button>
+            <button type="button" class="admin-filter-pill" data-filter="Goalkeeper">Goalkeeper</button>
+            <button type="button" class="admin-filter-pill" data-filter="Basketball">Basketball</button>
+          </div>
+        </div>
+
+        <!-- Sportswear Table -->
+        <div class="admin-table-card">
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Colourway</th>
+                  <th>Price / Unit</th>
+                  <th>Sizes</th>
+                  <th>Status</th>
+                  <th>Updated</th>
+                  <th style="text-align:right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="sportswearTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           VIEW 4: OPERATIONAL SETTINGS
+           ============================================== -->
+      <section id="view-settings" class="admin-view">
+        <div class="admin-header-row">
+          <div class="admin-header-title">
+            <h1>Operational Configuration</h1>
+            <p>Verified commercial contact parameters, Harare viewing coordination lines, and currency terms.</p>
+          </div>
+        </div>
+
+        <div class="admin-card-container" style="max-width:720px">
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Direct Commercial Channels</div>
+            <div class="admin-form-grid">
+              <div class="admin-field-group">
+                <label class="admin-field-label">WhatsApp Contact Line</label>
+                <input type="text" class="admin-field-input" value="+263 78 578 3150" readonly>
+              </div>
+              <div class="admin-field-group">
+                <label class="admin-field-label">Direct Viewing Phone</label>
+                <input type="text" class="admin-field-input" value="077 441 1867" readonly>
+              </div>
+              <div class="admin-field-group">
+                <label class="admin-field-label">Official Email</label>
+                <input type="email" class="admin-field-input" value="info@creativewinginvestments.co.zw" readonly>
+              </div>
+              <div class="admin-field-group">
+                <label class="admin-field-label">Physical Location</label>
+                <input type="text" class="admin-field-input" value="Harare, Zimbabwe" readonly>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Financial Policy & Terms</div>
+            <p style="color:#94A3B8;font-size:0.88rem;line-height:1.6;margin:0 0 14px 0">
+              Creative Wing Investments operates exclusively with transparent <b>USD Cash Pricing</b> and in-person physical inspections in Harare. All catalog prices are validated against positive USD numeric values.
+            </p>
+            <div class="admin-status-pill" style="color:var(--admin-lime);border-color:rgba(152,199,87,0.3)">
+              <span>Currency Term: Fixed USD Cash</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ==================================================
+       3. MODAL: ADD / EDIT VEHICLE
+       ================================================== -->
+  <div id="vehicleModal" class="admin-modal-backdrop">
+    <div class="admin-modal-container">
+      <div class="admin-modal-header">
+        <h2 id="vehicleModalTitle">Add New Vehicle</h2>
+        <button type="button" class="admin-modal-close" onclick="adminModal.handleBackdropClose('vehicleModal')" aria-label="Close dialog">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="admin-modal-body">
+        <form id="vehicleForm">
+          <!-- Section A: Basic Info -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Section A: Basic Information</div>
+            <div class="admin-form-grid">
+              <div class="admin-field-group" style="grid-column: 1 / -1">
+                <label for="vName" class="admin-field-label">Vehicle Title / Display Name *</label>
+                <input type="text" id="vName" class="admin-field-input" placeholder="e.g. Toyota Hilux Travo 2.8 GD-6 4x4" required>
+              </div>
+              <div class="admin-field-group">
+                <label for="vCategory" class="admin-field-label">Category *</label>
+                <select id="vCategory" class="admin-select" required>
+                  <option value="Pickup">Pickup / 4x4</option>
+                  <option value="SUV">SUV</option>
+                  <option value="Sedan">Sedan</option>
+                  <option value="Hatchback">Hatchback</option>
+                  <option value="MPV">MPV</option>
+                  <option value="Wagon">Wagon</option>
+                </select>
+              </div>
+              <div class="admin-field-group">
+                <label for="vYear" class="admin-field-label">Model Year *</label>
+                <input type="number" id="vYear" class="admin-field-input" placeholder="2024" min="1990" max="2027" required>
+              </div>
+              <div class="admin-field-group">
+                <label for="vStatus" class="admin-field-label">Inventory Status *</label>
+                <select id="vStatus" class="admin-select" required>
+                  <option value="Available">Available (Visible in Public Catalog)</option>
+                  <option value="Reserved">Reserved (Marked as Reserved)</option>
+                  <option value="Sold">Sold (Marked as Sold)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section B: Pricing -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Section B: Pricing (USD)</div>
+            <div class="admin-form-grid">
+              <div class="admin-field-group">
+                <label for="vPrice" class="admin-field-label">Cash Price (USD) *</label>
+                <input type="number" id="vPrice" class="admin-field-input" placeholder="38500" min="0" required>
+              </div>
+              <div class="admin-field-group">
+                <label class="admin-field-label">Currency Term</label>
+                <input type="text" class="admin-field-input" value="USD Cash Only • Harare Collection" readonly>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section C: Technical Specifications -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Section C: Specifications</div>
+            <div class="admin-form-grid-3">
+              <div class="admin-field-group">
+                <label for="vMileage" class="admin-field-label">Mileage</label>
+                <input type="text" id="vMileage" class="admin-field-input" placeholder="e.g. 82,000 km">
+              </div>
+              <div class="admin-field-group">
+                <label for="vTransmission" class="admin-field-label">Transmission</label>
+                <select id="vTransmission" class="admin-select">
+                  <option value="Automatic">Automatic</option>
+                  <option value="Manual">Manual</option>
+                </select>
+              </div>
+              <div class="admin-field-group">
+                <label for="vFuel" class="admin-field-label">Fuel Type</label>
+                <select id="vFuel" class="admin-select">
+                  <option value="Diesel">Diesel</option>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Hybrid">Hybrid</option>
+                </select>
+              </div>
+              <div class="admin-field-group">
+                <label for="vDrivetrain" class="admin-field-label">Drivetrain</label>
+                <select id="vDrivetrain" class="admin-select">
+                  <option value="4WD">4WD / 4x4</option>
+                  <option value="2WD">2WD / FWD</option>
+                  <option value="AWD">AWD</option>
+                </select>
+              </div>
+              <div class="admin-field-group">
+                <label for="vColor" class="admin-field-label">Body Color</label>
+                <input type="text" id="vColor" class="admin-field-input" placeholder="e.g. Battleship Grey">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section D: Description -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Section D: Commercial Description</div>
+            <div class="admin-field-group">
+              <label for="vDescription" class="admin-field-label">Customer-Facing Overview & Condition</label>
+              <textarea id="vDescription" class="admin-textarea" placeholder="Mechanical inspection condition, notable extras, service history, and physical viewing details in Harare."></textarea>
+            </div>
+          </div>
+
+          <!-- Section E: Feature Tags -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Section E: Vehicle Features</div>
+            <div class="admin-tag-input-row">
+              <input type="text" id="vehicleFeatureInput" class="admin-field-input" placeholder="Type feature (e.g. Leather Interior, Reverse Camera)...">
+              <button type="button" id="btnAddVehicleFeature" class="admin-btn admin-btn-secondary">Add</button>
+            </div>
+            <div id="vehicleTagsWrap" class="admin-tags-wrap"></div>
+          </div>
+
+          <!-- Section F: Photographic Image Gallery -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Section F: Photographic Image Management</div>
+            <p style="color:#94A3B8;font-size:0.82rem;margin:0 0 10px 0">The first photo is the <b>Primary</b> catalogue image. Hover to promote any photo or remove it.</p>
+            
+            <div id="vehicleGalleryGrid" class="admin-image-gallery"></div>
+
+            <div class="admin-tag-input-row" style="margin-top:14px">
+              <input type="text" id="vehicleImageUrlInput" class="admin-field-input" placeholder="Or paste image path / URL (e.g. images/cars/travo-front.jpeg)...">
+              <button type="button" id="btnAddVehicleImageUrl" class="admin-btn admin-btn-secondary">Add URL</button>
+            </div>
+
+            <div id="vehicleUploadBox" class="admin-image-upload-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--admin-lime)" stroke-width="2" style="margin-bottom:6px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <div style="font-size:0.88rem;color:#E2E8F0;font-weight:600">Click to upload vehicle photo from computer</div>
+              <div style="font-size:0.75rem;color:#94A3B8;margin-top:2px">JPEG, PNG, WebP supported</div>
+              <input type="file" id="vehicleFileInput" accept="image/*" multiple>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="admin-modal-footer">
+        <div style="display:flex;gap:10px;align-items:center">
+          <button type="button" class="admin-btn admin-btn-secondary" onclick="adminModal.handleBackdropClose('vehicleModal')">Cancel</button>
+          <button type="button" id="btnPreviewVehicle" class="admin-btn admin-btn-secondary" onclick="adminVehicles.previewCurrent()" title="Preview live showroom card & dialog">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <span>Preview in Showroom</span>
+          </button>
+        </div>
+        <button type="submit" form="vehicleForm" id="btnSaveVehicle" class="admin-btn admin-btn-primary">Save Vehicle</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================
+       4. MODAL: ADD / EDIT SPORTSWEAR
+       ================================================== -->
+  <div id="sportswearModal" class="admin-modal-backdrop">
+    <div class="admin-modal-container">
+      <div class="admin-modal-header">
+        <h2 id="sportswearModalTitle">Add New Sportswear Product</h2>
+        <button type="button" class="admin-modal-close" onclick="adminModal.handleBackdropClose('sportswearModal')" aria-label="Close dialog">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="admin-modal-body">
+        <form id="sportswearForm">
+          <!-- Basic Info -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Product Information</div>
+            <div class="admin-form-grid">
+              <div class="admin-field-group" style="grid-column: 1 / -1">
+                <label for="swName" class="admin-field-label">Kit / Product Title *</label>
+                <input type="text" id="swName" class="admin-field-input" placeholder="e.g. Royal Blue Pro Kit" required>
+              </div>
+              <div class="admin-field-group">
+                <label for="swCategory" class="admin-field-label">Category *</label>
+                <select id="swCategory" class="admin-select" required>
+                  <option value="Match Set">Match Set (Jersey + Shorts)</option>
+                  <option value="Goalkeeper">Goalkeeper Kit</option>
+                  <option value="Basketball">Basketball Jersey</option>
+                  <option value="Training">Training Apparel</option>
+                  <option value="Corporate">Corporate Sportswear</option>
+                </select>
+              </div>
+              <div class="admin-field-group">
+                <label for="swStatus" class="admin-field-label">Status *</label>
+                <select id="swStatus" class="admin-select" required>
+                  <option value="Available">Available (Active in Catalog)</option>
+                  <option value="Unavailable">Unavailable / Out of Stock</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pricing -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Pricing (USD)</div>
+            <div class="admin-form-grid">
+              <div class="admin-field-group">
+                <label for="swPrice" class="admin-field-label">Unit Price (USD) *</label>
+                <input type="number" id="swPrice" class="admin-field-input" placeholder="28" min="0" required>
+              </div>
+              <div class="admin-field-group">
+                <label for="swPricingUnit" class="admin-field-label">Pricing Unit Label</label>
+                <select id="swPricingUnit" class="admin-select">
+                  <option value="Per Full Set">Per Full Set (Jersey + Shorts)</option>
+                  <option value="Per Item">Per Item</option>
+                  <option value="Quote Required">Quote Required for Bulk</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fabric & Specs -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Fabric Specifications & Colors</div>
+            <div class="admin-form-grid">
+              <div class="admin-field-group">
+                <label for="swColorway" class="admin-field-label">Colourway</label>
+                <input type="text" id="swColorway" class="admin-field-input" placeholder="e.g. Royal Blue / White">
+              </div>
+              <div class="admin-field-group">
+                <label for="swMaterial" class="admin-field-label">Material Composition</label>
+                <input type="text" id="swMaterial" class="admin-field-input" placeholder="e.g. 100% micro-polyester">
+              </div>
+              <div class="admin-field-group" style="grid-column: 1 / -1">
+                <label for="swDescription" class="admin-field-label">Description & Kit Details</label>
+                <textarea id="swDescription" class="admin-textarea" placeholder="Fabric breathability, moisture-wicking technology, sleeve accents, and squad tournament usage."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Available Sizes -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Available Sizes</div>
+            <p style="color:#94A3B8;font-size:0.82rem;margin:0 0 8px 0">Select sizes actively procurable for this product:</p>
+            <div id="swSizesWrap" class="admin-sizes-selector"></div>
+          </div>
+
+          <!-- Customization Options -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Customization Services</div>
+            <div id="swCustomizationWrap" class="admin-customization-options"></div>
+          </div>
+
+          <!-- Photo Gallery -->
+          <div class="admin-form-section">
+            <div class="admin-form-section-title">Kit Photography</div>
+            <div id="swGalleryGrid" class="admin-image-gallery"></div>
+
+            <div class="admin-tag-input-row" style="margin-top:14px">
+              <input type="text" id="swImageUrlInput" class="admin-field-input" placeholder="Paste image path / URL (e.g. images/sportswear/02.jpeg)...">
+              <button type="button" id="btnAddSwImageUrl" class="admin-btn admin-btn-secondary">Add URL</button>
+            </div>
+
+            <div id="swUploadBox" class="admin-image-upload-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--admin-lime)" stroke-width="2" style="margin-bottom:6px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <div style="font-size:0.88rem;color:#E2E8F0;font-weight:600">Click to upload kit photo from computer</div>
+              <div style="font-size:0.75rem;color:#94A3B8;margin-top:2px">JPEG, PNG, WebP supported</div>
+              <input type="file" id="swFileInput" accept="image/*" multiple>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="admin-modal-footer">
+        <div style="display:flex;gap:10px;align-items:center">
+          <button type="button" class="admin-btn admin-btn-secondary" onclick="adminModal.handleBackdropClose('sportswearModal')">Cancel</button>
+          <button type="button" id="btnPreviewSportswear" class="admin-btn admin-btn-secondary" onclick="adminSportswear.previewCurrent()" title="Preview live showroom card & dialog">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <span>Preview in Showroom</span>
+          </button>
+        </div>
+        <button type="submit" form="sportswearForm" id="btnSaveSportswear" class="admin-btn admin-btn-primary">Save Product</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================
+       5. MODAL: DESTRUCTIVE ACTION CONFIRMATION
+       ================================================== -->
+  <div id="confirmModal" class="admin-modal-backdrop">
+    <div class="admin-modal-container admin-confirm-dialog" style="max-width:480px">
+      <div class="admin-confirm-hero">
+        <div id="confirmModalIconBadge" class="admin-confirm-icon-badge danger">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+        <button type="button" class="admin-modal-close admin-confirm-close" onclick="adminModal.close('confirmModal')" aria-label="Close dialog">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="admin-confirm-body">
+        <div class="admin-confirm-tag">
+          <span class="admin-confirm-tag-dot"></span>
+          <span>Creative Wing Security</span>
+        </div>
+        <h2 id="confirmModalTitle" class="admin-confirm-title">Confirm Action</h2>
+        <p id="confirmModalMessage" class="admin-confirm-desc">
+          Are you sure you want to perform this action?
+        </p>
+      </div>
+
+      <div class="admin-confirm-footer">
+        <button type="button" class="admin-btn admin-btn-secondary" onclick="adminModal.close('confirmModal')">Cancel</button>
+        <button type="button" id="confirmModalActionBtn" class="admin-btn admin-btn-danger">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================
+       6. TOAST NOTIFICATION CONTAINER
+       ================================================== -->
+  <div id="adminToast" class="admin-toast">
+    <div id="adminToastIcon"></div>
+    <span id="adminToastText">Operation completed successfully.</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/inventory-service.js"></script>
+  <script src="js/admin/admin-api.js"></script>
+  <script src="js/admin/admin-auth.js"></script>
+  <script src="js/admin/admin-validation.js"></script>
+  <script src="js/admin/admin-modal.js"></script>
+  <script src="js/admin/admin-dashboard.js"></script>
+  <script src="js/admin/admin-vehicles.js"></script>
+  <script src="js/admin/admin-sportswear.js"></script>
+  <script src="js/admin/admin.js"></script>
+</body>
+</html>

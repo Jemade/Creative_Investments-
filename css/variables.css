@@ -1,0 +1,101 @@
+/* Creative Wing Investments — Comprehensive Design Tokens & Variables */
+:root {
+  /* ==================================================
+     BRAND & COLOR PALETTE
+     ================================================== */
+  /* Backgrounds */
+  --bg: #040E2C;
+  --bg-primary: #040E2C;
+  --bg-secondary: #06133A;
+  --bg-tertiary: #081B4B;
+
+  /* Functional Surfaces */
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-hover: rgba(255, 255, 255, 0.065);
+  --surface-active: rgba(255, 255, 255, 0.095);
+  --surface-elevated: #091E52;
+
+  /* Typography Colors */
+  --text: #F8FAFC;
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --muted: #94A3B8;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.18);
+  --border-accent: rgba(152, 199, 87, 0.35);
+
+  /* Brand Accents (Creative Wing Identity) */
+  --brand-primary: #98C757;   /* Creative Lime */
+  --brand-secondary: #229D9A; /* Creative Teal */
+  --brand-blue: #07617E;      /* Creative Wing Navy */
+  --lime: #98C757;
+  --lime-dark: #7EA842;
+  --teal: #229D9A;
+  --mint: #60BD9D;
+  --blue: #07617E;
+
+  /* Status Tokens */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+
+  /* ==================================================
+     PHOTOGRAPHICALLY AWARE GRADIENTS
+     ================================================== */
+  --gradient-accent: linear-gradient(135deg, #98C757 0%, #60BD9D 60%, #229D9A 100%);
+  --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --gradient-hero-overlay: radial-gradient(1200px 700px at 50% 45%, rgba(4, 14, 44, 0.58) 0%, rgba(3, 10, 32, 0.92) 85%),
+                           linear-gradient(180deg, rgba(4, 14, 44, 0.85) 0%, rgba(4, 14, 44, 0.55) 45%, rgba(4, 14, 44, 0.95) 100%);
+
+  /* ==================================================
+     SPACING SYSTEM (Consistent Visual Grid)
+     ================================================== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 120px;
+
+  /* ==================================================
+     RADII & ELEVATIONS
+     ================================================== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 12px 32px -8px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 48px -12px rgba(0, 0, 0, 0.65);
+  --shadow-glow: 0 0 24px rgba(152, 199, 87, 0.25);
+
+  /* ==================================================
+     LAYOUT CONSTRAINTS
+     ================================================== */
+  --max-w: 1240px;
+  --nav-h: 74px;
+
+  /* ==================================================
+     TYPOGRAPHY
+     ================================================== */
+  --font-display: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* ==================================================
+     MOTION & TRANSITIONS
+     ================================================== */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slide: 1600ms ease-in-out;
+}
