@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+node_modules/
+*.log
+creative-wing-frontend (1).zip
+creative-wing-frontend (1)/
+.DS_Store
