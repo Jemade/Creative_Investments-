@@ -1,25 +1,31 @@
 # Creative Wing Investments
 
-Official commercial platform and inventory administration application for **Creative Wing Investments** (Harare, Zimbabwe).
+Official Creative Wing Investments website and owner inventory administration portal.
 
-- **Public Website**: High-performance, mobile-responsive commercial presentation covering Vehicles Fleet, Sportswear & Team Kits, and Core Business Divisions.
-- **Admin Operations OS**: Protected inventory management portal for creating, updating, and removing vehicles and sportswear, managing image uploads, and updating commercial settings.
-- **Backend Architecture**: Native Node.js HTTP server and REST API with zero external dependencies.
+## Production stack
 
-## Local Development
+- HTML, CSS and vanilla JavaScript frontend
+- PHP 8+ REST API
+- MySQL / MariaDB persistence
+- Apache/LiteSpeed rewrite rules via .htaccess
+- Local image uploads under images/cars/ and images/sportswear/
 
-```bash
-# Start the server (runs on port 5500 by default)
-npm start
+This production branch is designed for low-cost cPanel shared hosting such as WebZim. It does not require Node.js, npm, a VPS, Nginx, Docker or a long-running application process.
 
-# Or test server syntax
-npm run check
-```
+## API compatibility
 
-Visit:
-- Public Website: `http://localhost:5500/`
-- Admin Portal: `http://localhost:5500/admin.html`
+The frontend keeps the existing /api/auth/*, /api/inventory/*, /api/upload and /api/settings routes.
 
-## Production Deployment
+## Configuration
 
-Refer to [`DEPLOYMENT.md`](DEPLOYMENT.md) for step-by-step instructions on deploying to an Ubuntu DigitalOcean Droplet with Nginx reverse proxy, systemd process management, and Let's Encrypt SSL.
+Copy config.example.php to config.local.php and set database credentials and an admin password hash. Never commit config.local.php.
+
+Generate a password hash:
+
+    php -r "echo password_hash('YOUR_STRONG_PASSWORD', PASSWORD_DEFAULT), PHP_EOL;"
+
+Create the tables and import the existing JSON catalogue:
+
+    php scripts/import-json.php
+
+See DEPLOYMENT.md for the complete WebZim/cPanel procedure.
