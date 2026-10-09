@@ -94,23 +94,41 @@ function writeJson(filename, data) {
   fs.writeFileSync(p, JSON.stringify(data, null, 2), 'utf8');
 }
 
-// Parse request body safely with payload ceiling (25MB)
+// Reject malformed and oversized JSON without destroying the connection.
 function parseBody(req) {
+  const MAX_BODY_BYTES = 25 * 1024 * 1024;
   return new Promise((resolve, reject) => {
-    let body = '';
+    const chunks = [];
+    let received = 0;
+    let failed = false;
     req.on('data', chunk => {
-      body += chunk;
-      if (body.length > 25 * 1024 * 1024) {
-        req.destroy();
-        reject(new Error('Payload too large'));
+      if (failed) return;
+      received += chunk.length;
+      if (received > MAX_BODY_BYTES) {
+        failed = true;
+        const error = new Error('Payload too large');
+        error.statusCode = 413;
+        reject(error);
+        return;
       }
+      chunks.push(chunk);
     });
     req.on('end', () => {
-      if (!body) return resolve({});
+      if (failed) return;
+      if (!received) return resolve({});
       try {
-        resolve(JSON.parse(body));
-      } catch (e) {
-        resolve({});
+        const parsed = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+        if (parsed === null || Array.isArray(parsed) || typeof parsed !== 'object') {
+          const error = new Error('Expected a JSON object');
+          error.statusCode = 400;
+          return reject(error);
+        }
+        resolve(parsed);
+      } catch (error) {
+        if (error.statusCode) return reject(error);
+        const invalid = new Error('Malformed JSON body');
+        invalid.statusCode = 400;
+        reject(invalid);
       }
     });
     req.on('error', reject);
@@ -538,7 +556,7 @@ const server = http.createServer(async (req, res) => {
   } catch (err) {
     console.error('Unhandled server error:', err);
     if (!res.headersSent) {
-      sendJson(res, 500, { error: 'Internal server error' });
+      sendJson(res, err.statusCode === 400 || err.statusCode === 413 ? err.statusCode : 500, { error: err.statusCode === 400 || err.statusCode === 413 ? err.message : 'Internal server error' });
     } else {
       res.end();
     }
