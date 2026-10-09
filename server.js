@@ -556,7 +556,7 @@ const server = http.createServer(async (req, res) => {
   } catch (err) {
     console.error('Unhandled server error:', err);
     if (!res.headersSent) {
-      sendJson(res, 500, { error: 'Internal server error' });
+      sendJson(res, err.statusCode === 400 || err.statusCode === 413 ? err.statusCode : 500, { error: err.statusCode === 400 || err.statusCode === 413 ? err.message : 'Internal server error' });
     } else {
       res.end();
     }
